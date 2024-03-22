@@ -23,9 +23,17 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  avatarImage: {
-    type: String,
-    default: "",
+  sentRequest: {
+    type: Array,
+    default: [],
+  },
+  recievedRequest: {
+    type: Array,
+    default: [],
+  },
+  contacts: {
+    type: Array,
+    default: [],
   },
 });
 

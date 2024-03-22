@@ -53,6 +53,30 @@ module.exports.getAllUsers = async (req, res, next) => {
   }
 };
 
+module.exports.getUserContacts = async (req, res) => {
+
+  const userId = req.params.id;
+
+  try {
+    // Find the user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Extract the contacts array from the user
+    const contacts = user.contacts;
+
+    res.json({ contacts });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+    // next(ex)
+  }
+
+};
+
+
 module.exports.setAvatar = async (req, res, next) => {
   try {
     const userId = req.params.id;

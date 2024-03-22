@@ -22,8 +22,6 @@ export default function Contacts({ contacts, changeChat }) {
       {currentUserImage && currentUserImage && (
         <Container>
           <div className="brand">
-            <img src={Logo} alt="logo" />
-            <h3>snappy</h3>
           </div>
           <div className="contacts">
             {contacts.map((contact, index) => {
@@ -42,7 +40,7 @@ export default function Contacts({ contacts, changeChat }) {
                     />
                   </div>
                   <div className="username">
-                    <h3>{contact.username}</h3>
+                    <h3>{contact.username ? contact.username : contact.email.split('@')[0]}</h3>
                   </div>
                 </div>
               );

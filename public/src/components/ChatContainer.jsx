@@ -80,7 +80,7 @@ export default function ChatContainer({ currentChat, socket }) {
             />
           </div>
           <div className="username">
-            <h3>{currentChat.username}</h3>
+            <h3>{currentChat.username ? currentChat.username: currentChat.email.split('@')[0]}</h3>
           </div>
         </div>
         <Logout />
